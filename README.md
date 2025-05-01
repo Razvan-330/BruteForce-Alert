@@ -40,26 +40,39 @@ SPL Query Results in the Dataset:  <br/>
 <img src="https://i.imgur.com/nSt07oR.png" height="80%" width="80%" alt="Dataset Query"/>
 <br />
 
+From the results, we can observe that the computer “mercury.frothly.local”, with the user “MERCURY$” from source IP 10.0.1.100, recorded a total of 3162 failed logon attempts.
+Similarly, the user “Administrator” from IP 10.0.1.220 recorded a total of 189 failed login attempts.
+
+<b><h3>Saving and Configuring the Alert:</h3></b>
+
+To save and configure the alert, click on Save as > Alert.
+
+<b>Title:</b> Assign a title to the alert (e.g., BruteForce Alert).
+
+<b>Permissions:</b> Choose the alert's permission setting — either Private (personal use) or Shared in App (accessible to other users in the app). In a corporate context, it should be shared so that the response to such attacks can be as quick and coordinated as possible.
+
+<b>Alert Type:</b>
+Set to Scheduled - Run on Cron schedule (*/2 * * * *), so the alert runs every 2 minutes (Parameter 2).
+Real-time is an option, but it might generate unnecessary traffic.
+
+<b>Expires:</b> Set to 24 Hours. The alert will expire 24 hours after being triggered, which is appropriate for this type of attack, as it requires a fast response.
+
+<b>Trigger Conditions:</b>
+Set to Number of results is greater than 0 (Parameter 3).
+Since the SPL query already filters to show results with 10 or more failed attempts, a single qualifying result is sufficient to trigger the alert. One failed login alone will not trigger the alert, allowing for normal human errors.
+
+<b>Trigger Actions:</b>
+Choose Add to Triggered Alerts (severity: High).
+This alert will generate a high-severity notification to ensure it’s investigated as quickly as possible.
+
 <br />
-Enter the number of passes: <br/>
-<img src="https://i.imgur.com/nCIbXbg.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+Save as Alert: <br/>
+<img src="https://i.imgur.com/ku2yzRA.png" height="80%" width="80%" alt="Bruteforce alert"/>
 <br />
 <br />
-Confirm your selection:  <br/>
-<img src="https://i.imgur.com/cdFHBiU.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+Trigger Actions:  <br/>
+<img src="https://i.imgur.com/3QsbsuI.png" height="80%" width="80%" alt="Bruteforce alert"/>
 <br />
-<br />
-Wait for process to complete (may take some time):  <br/>
-<img src="https://i.imgur.com/JL945Ga.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-Sanitization complete:  <br/>
-<img src="https://i.imgur.com/K71yaM2.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-Observe the wiped disk:  <br/>
-<img src="https://i.imgur.com/AeZkvFQ.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
 
 <!--
  ```diff
